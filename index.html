@@ -15,12 +15,57 @@
         }
 
         /* Header styles */
+        header {
+            background-color: #000;
+            padding: 15px 0;
+            width: 100%;
+        }
+
         .header-container {
-            padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            margin: 0;
+            font-size: 24px;
+            text-decoration: none;
         }
 
         .search-container {
-            margin: 10px 0;
+            flex: 1;
+            max-width: 600px;
+            margin: 0 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px 0 0 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background: #ff0000;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-button:hover {
+            background: #cc0000;
         }
 
         /* Video grid styles */
@@ -50,6 +95,25 @@
 
         /* Mobile styles */
         @media screen and (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .search-container {
+                width: 100%;
+                margin: 0;
+                max-width: none;
+            }
+
+            .search-bar {
+                width: calc(100% - 60px);
+            }
+
             .video-grid {
                 display: flex;
                 flex-direction: column;
@@ -91,7 +155,7 @@
         <div class="header-container">
             <h1 class="logo">Slayer</h1>
             <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search...">
+                <input type="text" class="search-bar" placeholder="Search videos...">
                 <button class="search-button">🔍</button>
             </div>
         </div>
