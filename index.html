@@ -30,6 +30,64 @@
             align-items: center;
         }
 
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 2px 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #111;
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
         .logo {
             color: #fff;
             margin: 0;
@@ -68,6 +126,24 @@
             background: #cc0000;
         }
 
+        /* Sub Navigation */
+        .sub-nav {
+            background-color: #111;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .sub-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 16px;
+        }
+
+        .sub-nav a:hover {
+            color: #ff0000;
+        }
+
         /* Video grid styles */
         .video-grid {
             display: grid;
@@ -100,6 +176,12 @@
                 padding: 10px;
             }
 
+            .logo-container {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 15px;
+            }
+
             .logo {
                 margin-bottom: 15px;
             }
@@ -112,6 +194,16 @@
 
             .search-bar {
                 width: calc(100% - 60px);
+            }
+
+            .sub-nav {
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .sub-nav a {
+                margin: 0 10px;
             }
 
             .video-grid {
@@ -150,16 +242,40 @@
     <script type='text/javascript' src='//pl25421789.profitablecpmrate.com/f6/4e/cd/f64ecd7432674d247642dac089ce98ba.js'></script>
 </head>
 <body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleSidebar()">=</div>
+        <a href="#">Top Videos</a>
+        <a href="#">Trending</a>
+        <a href="#">Social Media</a>
+    </div>
+
     <!-- Header Section with Search Bar -->
     <header>
         <div class="header-container">
-            <h1 class="logo">Slayer</h1>
+            <div class="logo-container">
+                <div class="hamburger-menu" onclick="toggleSidebar()">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </div>
+                <h1 class="logo">Slayer</h1>
+            </div>
             <div class="search-container">
                 <input type="text" class="search-bar" placeholder="Search videos...">
                 <button class="search-button">🔍</button>
             </div>
         </div>
     </header>
+
+    <!-- Sub Navigation -->
+    <nav class="sub-nav">
+        <a href="#">Home</a>
+        <a href="#">Videos</a>
+        <a href="#">Categories</a>
+        <a href="#">Social</a>
+        <a href="#">Top Videos</a>
+    </nav>
 
     <!-- Main Section for Videos -->
     <main>
@@ -267,5 +383,11 @@
     <footer>
         <p>© 2024 Slayerhub.com. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
